@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct MenuResponse: Codable {
+struct MenuResponse: Decodable {
     let items: [MenuItem]
 }
 
-struct CategoriesResponse: Codable {
+struct CategoriesResponse: Decodable {
     let categories: [String]
 }
 
-struct OrderResponse: Codable {
+struct OrderResponse: Decodable {
     let prepTime: Int
 
     enum CodingKeys: String, CodingKey {
@@ -23,7 +23,7 @@ struct OrderResponse: Codable {
     }
 }
 
-struct Order: Codable {
+struct Order: Encodable, Decodable {
     var menuItems: [MenuItem]
 
     init(
